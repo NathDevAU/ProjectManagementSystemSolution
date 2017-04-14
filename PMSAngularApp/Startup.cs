@@ -10,8 +10,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using EntityFrameworkPMS;
 using Microsoft.EntityFrameworkCore;
-
-
+using InterfaceDAL;
+using InterfacesPMS;
+using ORMEntitiesPMS;
 
 namespace PMSAngularApp
 {
@@ -29,16 +30,23 @@ namespace PMSAngularApp
 
         public IConfigurationRoot Configuration { get; }
 
+        public class AppSettings
+        {
+            public string ConnectionString { get; set; }
+        }
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
             services.AddMvc();
             // Add EF services to the services container
+            var connection = Configuration["DBConnection:ConnectionString"];
 
 
-            services.AddDbContext<EUow>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<EUow>(x => x.UseSqlServer(connection));
+
+            services.AddSingleton<IRepository<Project>, EFDataAccessLayer<Project>>()
+                    .AddSingleton<IUow, EUow>().BuildServiceProvider();
 
 
             //   services.AddDbContext<EUow>(options => options.Use("Data Source=blog.db"));

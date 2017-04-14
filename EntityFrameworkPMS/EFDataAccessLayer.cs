@@ -15,6 +15,7 @@ namespace EntityFrameworkPMS
         DbContext dbcont = null;
         public EFDataAccessLayer() 
         {
+
         }
         public void Add(Type ObjectToAdd)
         {

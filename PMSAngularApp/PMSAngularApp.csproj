@@ -27,6 +27,7 @@
     <Content Remove="ClientApp\**" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic.PMS\BusinessLogic.PMS.csproj" />
     <ProjectReference Include="..\EntityFrameworkPMS\EntityFrameworkDAL.csproj" />
     <ProjectReference Include="..\InterfaceDAL\InterfaceDAL.csproj" />
     <ProjectReference Include="..\InterfacesPMS\InterfacesPMS.csproj" />

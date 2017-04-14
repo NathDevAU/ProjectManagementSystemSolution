@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InterfaceDAL\InterfaceDAL.csproj" />
+    <ProjectReference Include="..\ORMEntitiesPMS\ORMEntitiesPMS.csproj" />
+  </ItemGroup>
+
+</Project>
