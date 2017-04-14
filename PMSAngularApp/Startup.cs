@@ -41,17 +41,10 @@ namespace PMSAngularApp
             services.AddMvc();
             // Add EF services to the services container
             var connection = Configuration["DBConnection:ConnectionString"];
-
-
             services.AddDbContext<EUow>(x => x.UseSqlServer(connection));
-
+            //Here we neeed to add any dependency to the concrete classes as no Unity or any other DI framework available for .net core class library
             services.AddSingleton<IRepository<Project>, EFDataAccessLayer<Project>>()
                     .AddSingleton<IUow, EUow>().BuildServiceProvider();
-
-
-            //   services.AddDbContext<EUow>(options => options.Use("Data Source=blog.db"));
-
-            //Here we neeed to add any dependency to the concrete classes as no Unity or any other DI framework available for .net core class library
             // services.AddScoped<InterfaceDAL,>
         }
 
