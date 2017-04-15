@@ -9,7 +9,7 @@ export class ProjectsComponent {
     public project: Projects[];
     constructor(http : Http) {
         http.get('api/ProjectsData/GetProjectsList').subscribe(result => {
-            debugger;
+          //  debugger;
             this.project = result.json() as Projects[];
         });
 //        this.project = { ProjectID: 1, ProjectName: "Sample Project 1", ProjectDesc : "This is sample project" };
