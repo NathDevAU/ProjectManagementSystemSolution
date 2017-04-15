@@ -1,23 +1,38 @@
 ﻿using InterfaceDAL;
+using InterfacesPMS;
 using ORMEntitiesPMS;
 using System;
 using System.Collections.Generic;
 
 namespace BusinessLogic.PMS
 {
-    //this class library is to apply any kind of business logic on entity framework DAL based data fetching methods and return final outcome to controller
-    public class ProjectBusinessLogic
+
+    public abstract class ProjectBusinessLogicAbstract
     {
-        private IRepository<Project> _Idal;
+      public abstract IEnumerable<ProjectBase> GetAllProjectList();
+    }
+
+    //this class library is to apply any kind of business logic on entity framework DAL based data fetching methods and return final outcome to controller
+    public class ProjectBusinessLogic: ProjectBusinessLogicAbstract
+{
+        private IRepository<ProjectBase> _iRepoProjectBase;
         
-        public ProjectBusinessLogic(IRepository<Project> idal)
+        public ProjectBusinessLogic()
         {
-            _Idal = idal;
+
         }
 
-        public IEnumerable<Project> getMethodData()
+        // constructor with dependency injection using asp.net core DI
+        public ProjectBusinessLogic(IRepository<ProjectBase> IRepoProjectBase)
         {
-          return _Idal.GetAll();
+            _iRepoProjectBase = IRepoProjectBase;
         }
+        #region Get Project data
+        public override IEnumerable<ProjectBase> GetAllProjectList()
+        {
+            return _iRepoProjectBase.GetAll();
+        }
+        #endregion
+
     }
 }

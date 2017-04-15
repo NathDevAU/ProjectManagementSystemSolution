@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "BusinessLogic.PMS.Test": {
+      "commandName": "Project",
+      "commandLineArgs": "-wait"
+    }
+  }
+}

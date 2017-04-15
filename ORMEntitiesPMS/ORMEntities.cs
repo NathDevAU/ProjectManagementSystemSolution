@@ -6,7 +6,7 @@ namespace ORMEntitiesPMS
 {
     #region base implementation of interfaces to map with EF to sql server tables
     //Here need to use Normal class to map it to SQL server Table as EF does not allow mapping of interface to Tables in database
-    public class Project : IProject
+    public class ProjectBase : IProject
     {
         
         [Key]
@@ -15,7 +15,7 @@ namespace ORMEntitiesPMS
         public string ProjectDesc { get; set; }
     }
 
-    public class Person: IPerson
+    public class PersonBase: IPerson
     {
         [Key]
         public int PersonID { get; set; }
@@ -25,7 +25,7 @@ namespace ORMEntitiesPMS
         public int PositionID { get; set; }
     }
 
-    public class Position: IPosition
+    public class PositionBase: IPosition
     {
         [Key]
      
@@ -34,7 +34,7 @@ namespace ORMEntitiesPMS
 
     }
 
-    public class ProjectPerson: IProjectPerson
+    public class ProjectPersonBase: IProjectPerson
     {
         [Key]
         public int ProjectPersonID { get; set; }

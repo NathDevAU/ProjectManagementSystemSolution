@@ -43,8 +43,10 @@ namespace PMSAngularApp
             var connection = Configuration["DBConnection:ConnectionString"];
             services.AddDbContext<EUow>(x => x.UseSqlServer(connection));
             //Here we neeed to add any dependency to the concrete classes as no Unity or any other DI framework available for .net core class library
-            services.AddSingleton<IRepository<Project>, EFDataAccessLayer<Project>>()
-                    .AddSingleton<IUow, EUow>().BuildServiceProvider();
+
+            services.AddTransient<IProject, ProjectBase>();
+            services.AddTransient<IRepository<ProjectBase>,EFDataAccessLayer<ProjectBase>>();
+              services.AddTransient<IUow, EUow>().BuildServiceProvider();
             // services.AddScoped<InterfaceDAL,>
         }
 
@@ -72,11 +74,11 @@ namespace PMSAngularApp
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Project}/{action=ProjectList}/{id?}");
 
                 routes.MapSpaFallbackRoute(
                     name: "spa-fallback",
-                    defaults: new { controller = "Home", action = "Index" });
+                    defaults: new { controller = "Project", action = "ProjectList" });
             });
         }
     }

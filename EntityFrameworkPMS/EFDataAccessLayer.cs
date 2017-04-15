@@ -57,7 +57,8 @@ namespace EntityFrameworkPMS
     {
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Project>()
+            //need to map with actual class because EF cannot allow to map with interface here 
+            modelBuilder.Entity<ProjectBase>()
                        .ToTable("Project"); // code first approach in .net core requries to install entity framework core and entity framework core relation nuget packages
         }
 
