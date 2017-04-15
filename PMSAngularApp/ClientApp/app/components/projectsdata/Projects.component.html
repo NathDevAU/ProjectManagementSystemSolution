@@ -9,12 +9,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">{{ project.ProjectID }}</th>
-            <td>{{project.ProjectName}}</td>
-            <td>{{project.ProjectDesc}}</td>
-          
+        <tr *ngFor="let ObjProject of project">
+            <td>{{ ObjProject.projectID }}</td>
+            <td>{{ ObjProject.projectName }}</td>
+            <td>{{ ObjProject.projectDesc }}</td>
+           
         </tr>
-       
     </tbody>
+
+  
 </table>

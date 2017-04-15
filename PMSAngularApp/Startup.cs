@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using InterfaceDAL;
 using InterfacesPMS;
 using ORMEntitiesPMS;
+using BusinessLogic.PMS;
 
 namespace PMSAngularApp
 {
@@ -46,7 +47,8 @@ namespace PMSAngularApp
 
             services.AddTransient<IProject, ProjectBase>();
             services.AddTransient<IRepository<ProjectBase>,EFDataAccessLayer<ProjectBase>>();
-              services.AddTransient<IUow, EUow>().BuildServiceProvider();
+            services.AddTransient<ProjectBusinessLogicAbstract, ProjectBusinessLogic>();
+            services.AddTransient<IUow, EUow>().BuildServiceProvider();
             // services.AddScoped<InterfaceDAL,>
         }
 

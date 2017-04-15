@@ -28,7 +28,6 @@ namespace ORMEntitiesPMS
     public class PositionBase: IPosition
     {
         [Key]
-     
         public int PositionId { get; set; }
         public string PositionName { get; set; }
 

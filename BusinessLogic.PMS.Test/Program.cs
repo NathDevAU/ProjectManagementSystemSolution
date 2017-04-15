@@ -34,7 +34,6 @@ namespace BusinessLogic.PMS.Test
         //DbContextOptions<EUow> options = new DbContextOptions<EntityFrameworkPMS.EUow>();
 
         IList<ProjectBase> IenumOfProjectBase= new List<ProjectBase>();
-        private static ProjectBusinessLogic _ObjProjectBusinessLogic;
         Mock<IRepository<ProjectBase>> _iRepoProjectBase;
         Mock<ProjectBusinessLogic> mockProjectBusinesslogic;
         [SetUp]
@@ -54,9 +53,6 @@ namespace BusinessLogic.PMS.Test
 
            //Assert
             Assert.IsNotNull(mockProjectBusinesslogic.Object.GetAllProjectList());
-
-
-
         }
     }
 }

@@ -7,10 +7,6 @@ using System.Collections.Generic;
 namespace BusinessLogic.PMS
 {
 
-    public abstract class ProjectBusinessLogicAbstract
-    {
-      public abstract IEnumerable<ProjectBase> GetAllProjectList();
-    }
 
     //this class library is to apply any kind of business logic on entity framework DAL based data fetching methods and return final outcome to controller
     public class ProjectBusinessLogic: ProjectBusinessLogicAbstract
@@ -19,7 +15,6 @@ namespace BusinessLogic.PMS
         
         public ProjectBusinessLogic()
         {
-
         }
 
         // constructor with dependency injection using asp.net core DI
@@ -32,6 +27,15 @@ namespace BusinessLogic.PMS
         {
             return _iRepoProjectBase.GetAll();
         }
+
+        public override void AddNewProject(ProjectBase ObjProjectBase)
+        {
+            if(ObjProjectBase.ProjectName != "" && ObjProjectBase.ProjectDesc != "")
+            _iRepoProjectBase.Add(ObjProjectBase);
+            
+        }
+
+
         #endregion
 
     }
