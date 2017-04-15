@@ -26,11 +26,7 @@ namespace PMSAngularApp.Controllers
 
         public IActionResult ProjectList()
         {
-            ProjectBusinessLogic pbl = new ProjectBusinessLogic(_objectOfProjectRepository);
-            ProjectBase pb = new ProjectBase { ProjectName="asd",ProjectDesc="gg" };
-            pbl.AddNewProject(pb);
-            _ObjectUnitOfWork.Committ(); // here finally after adding the project physical commit is happening
-            pbl.GetAllProjectList();
+          
             return View();
         }
 

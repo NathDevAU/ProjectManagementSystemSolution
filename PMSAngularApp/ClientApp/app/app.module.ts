@@ -7,7 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { ProjectsComponent } from './components/projectsdata/projects.component';
-
+import { AddProjectPersonComponent } from './components/AddProjectPerson/AddProjectPerson.component';
 @NgModule({
     bootstrap: [ AppComponent ],
     declarations: [
@@ -16,7 +16,8 @@ import { ProjectsComponent } from './components/projectsdata/projects.component'
         CounterComponent,
         FetchDataComponent,
         HomeComponent,
-        ProjectsComponent
+        ProjectsComponent,
+        AddProjectPersonComponent
     ],
     imports: [
         UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.
@@ -26,6 +27,7 @@ import { ProjectsComponent } from './components/projectsdata/projects.component'
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'projects', component: ProjectsComponent },
+            { path: 'AddProjectPerson', component: AddProjectPersonComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]
