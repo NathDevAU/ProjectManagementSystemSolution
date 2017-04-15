@@ -13,7 +13,11 @@
             <td>{{ ObjProject.projectID }}</td>
             <td>{{ ObjProject.projectName }}</td>
             <td>{{ ObjProject.projectDesc }}</td>
-           
+            <td><a class='btn btn-primary' [routerLink]="['/AddPersonToProject', ObjProject.projectID]"  >
+   
+   Add Person
+</a>
+              </td>
         </tr>
     </tbody>
 
