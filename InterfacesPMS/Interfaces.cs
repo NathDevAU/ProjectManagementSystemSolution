@@ -17,7 +17,7 @@ namespace InterfacesPMS
         string FirstName { get; set; }
         string LastName { get; set; }
         string MobileNo { get; set; }
-        int PositionID { get; set; }
+        
     }
 
     public interface IPosition

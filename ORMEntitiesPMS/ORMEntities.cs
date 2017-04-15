@@ -22,17 +22,10 @@ namespace ORMEntitiesPMS
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string MobileNo { get; set; }
-        public int PositionID { get; set; }
+        
     }
 
-    public class PositionBase: IPosition
-    {
-        [Key]
-        public int PositionId { get; set; }
-        public string PositionName { get; set; }
-
-    }
-
+    
     public class ProjectPersonBase: IProjectPerson
     {
         [Key]

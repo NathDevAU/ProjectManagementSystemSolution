@@ -12,7 +12,8 @@ export class AddProjectPersonComponent  {
     public ProjectName: string;
     constructor(http: Http, private route: ActivatedRoute, private router : Router) {
 
-        http.get('api/GetPersonList').subscribe(result => {
+        http.get('api/PersonData/GetPersonList').subscribe(result => {
+            debugger;
             this.Persons = result.json() as Person[];
         });
     }
@@ -33,8 +34,8 @@ export class AddProjectPersonComponent  {
 
 interface Person
 {
+    personID: number;
     firstName: string;
     lastName: string;
-    personPosition: string;
-    personMobile: string
+    mobileNo: string
 }

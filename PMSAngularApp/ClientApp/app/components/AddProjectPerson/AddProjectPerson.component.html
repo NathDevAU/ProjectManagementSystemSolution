@@ -6,14 +6,15 @@
             <th>Person ID</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Position</th>
+            <th>Mobile</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let ObjPerson of person">
+        <tr *ngFor="let ObjPerson of Persons">
+            <td>{{ ObjPerson.personID }}</td>
             <td>{{ ObjPerson.firstName }}</td>
             <td>{{ ObjPerson.lastName }}</td>
-            <td>{{ ObjPerson.personPosition }}</td>
+            <td>{{ ObjPerson.mobileNo }}</td>
            
         </tr>
     </tbody>
