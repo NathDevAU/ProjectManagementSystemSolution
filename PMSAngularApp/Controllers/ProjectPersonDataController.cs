@@ -36,7 +36,7 @@ namespace PMSAngularApp.Controllers
         [HttpPost("[action]")]
         public void PostPersonToProject([FromBody] ProjectPersonBase ObjProjectPersonToAdd)
         {
-
+            
             _ObjectOfProjectPersonBusinessLogic.AddNewPersonToProject(ObjProjectPersonToAdd);
             _ObjectUnitOfWork.Committ(); // final physical commit here 
         }

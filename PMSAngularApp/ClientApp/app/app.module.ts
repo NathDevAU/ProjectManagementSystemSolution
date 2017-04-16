@@ -11,6 +11,7 @@ import { AddProjectPersonComponent } from './components/AddProjectPerson/AddProj
 import { ProjectPersonListComponent } from './components/ProjectPersonList/projectpersonlist.component';
 import { AddProjectComponent } from './components/AddProject/addproject.component';
 import { AddPersonComponent } from './components/AddPerson/addperson.component';
+import { PeopleComponent } from './components/PersonList/personlist.component';
 @NgModule({
     bootstrap: [ AppComponent ],
     declarations: [
@@ -23,7 +24,8 @@ import { AddPersonComponent } from './components/AddPerson/addperson.component';
         AddProjectPersonComponent,
         ProjectPersonListComponent,
         AddProjectComponent,
-        AddPersonComponent
+        AddPersonComponent,
+        PeopleComponent
     ],
     imports: [
         UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.
@@ -37,6 +39,7 @@ import { AddPersonComponent } from './components/AddPerson/addperson.component';
             { path: 'ViewProjectPersons', component: ProjectPersonListComponent },
             { path: 'AddProject', component: AddProjectComponent },
             { path: 'AddPerson', component: AddPersonComponent },
+            { path: 'people', component: PeopleComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]

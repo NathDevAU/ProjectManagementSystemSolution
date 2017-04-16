@@ -81,8 +81,11 @@ namespace PMSAngularApp.Controllers
         [HttpPost("[action]")]
         public void PostPerson([FromBody]PersonBase ObjPersonToAdd)
         {
-            _ObjectOfPersonBusinessLogic.AddNewPerson(ObjPersonToAdd);
-            _ObjectUnitOfWork.Committ();
+            if (ObjPersonToAdd.FirstName != "" && ObjPersonToAdd.LastName != "")
+            {
+                _ObjectOfPersonBusinessLogic.AddNewPerson(ObjPersonToAdd);
+                _ObjectUnitOfWork.Committ();
+            }
         }
 
     }

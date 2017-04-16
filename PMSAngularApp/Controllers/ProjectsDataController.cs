@@ -44,8 +44,11 @@ namespace PMSAngularApp.Controllers
         [HttpPost("[action]")]
         public void PostProject([FromBody]ProjectBase ObjProjectToAdd)
         {
-            _ObjectOfProjectBusinessLogic.AddNewProject(ObjProjectToAdd);
-            _ObjectUnitOfWork.Committ();
+            if (ObjProjectToAdd.ProjectName != "")
+            {
+                _ObjectOfProjectBusinessLogic.AddNewProject(ObjProjectToAdd);
+                _ObjectUnitOfWork.Committ();
+            }
         }
 
         // PUT api/values/5
