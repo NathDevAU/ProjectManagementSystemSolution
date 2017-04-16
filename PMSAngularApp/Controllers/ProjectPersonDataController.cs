@@ -48,6 +48,7 @@ namespace PMSAngularApp.Controllers
 
         }
 
+       
         //private method to retrieve person which are assigned to project passed
         private IEnumerable<PersonBase> GetProjectPersons(int ProjectID)
         {
@@ -70,6 +71,6 @@ namespace PMSAngularApp.Controllers
           
         }
 
-
+       
     }
 }
