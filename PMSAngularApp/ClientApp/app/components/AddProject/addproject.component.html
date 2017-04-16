@@ -1,12 +1,15 @@
 ﻿<h3>Add New Project</h3>
 <div class="form-group">
     <label for="inputdefault">Project Name:</label>
-        <input class="form-control" #txtProjectName type= "text" >
+        <input class="form-control" #txtProjectName type= "text" (focus)="RemoveNotificationText();" >
 </div>
 <div class="form-group">
     <label for="inputdefault">Project Description:</label>
-    <input class="form-control" #txtProjectDesc type="text">
+    <input class="form-control" #txtProjectDesc type="text" (focus)="RemoveNotificationText();">
 </div>
 <div>
     <button class='btn btn-primary' #btnAddProject (click)="AddNewProject(txtProjectName.value,txtProjectDesc.value)" >Add Project</button>
+</div>
+<div>
+    {{NotificationMessageText }}
 </div>

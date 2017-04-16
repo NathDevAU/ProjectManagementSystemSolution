@@ -1,13 +1,16 @@
 ﻿<h3>Add New Person</h3>
 <div class="form-group">
     <label for="inputdefault">First Name:</label>
-    <input class="form-control" #txtFirstName type="text">
+    <input class="form-control" #txtFirstName type="text" (focus)="RemoveNotificationText();">
 </div>
 <div class="form-group">
     <label for="inputdefault">Last Name:</label>
-    <input class="form-control" #txtLastName type="text">
+    <input class="form-control" #txtLastName type="text" (focus)="RemoveNotificationText();">
 </div>
 
 <div>
     <button class='btn btn-primary' #btnAddProject (click)="AddNewPerson(txtFirstName.value,txtLastName.value)">Add Person</button>
+</div>
+<div>
+    {{NotificationMessageText }}
 </div>

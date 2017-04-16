@@ -7,22 +7,16 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 export class AddPersonComponent {
     public Person: Person;
     public httpService: Http;
+    public NotificationMessageText: string;
     constructor(http: Http) {
         this.httpService = http;
+        this.NotificationMessageText = "";
     }
-    KeyPressedForMobileNo(evt)
-    {
-        evt = (evt) ? evt : window.event;
-        var charCode = (evt.which) ? evt.which : evt.keyCode;
-
-        if (charCode > 31 && (charCode != 46 && (charCode < 48 || charCode > 57))) {
-            return false;
-        } else {
-            return true;
-        }
+    RemoveNotificationText() {
+        this.NotificationMessageText = "";
     }
     AddNewPerson(firstName: string, lastName: string) {
-        alert(firstName);
+      //  alert(firstName);
         let headersB = new Headers();
         headersB.append('Content-Type', 'application/json');
         //let options = new RequestOptions({ headers: headersB }); 
@@ -31,7 +25,7 @@ export class AddPersonComponent {
         debugger;
         this.httpService.post('api/PersonData/PostPerson', body, options).subscribe(result => {
             // debugger;
-
+            this.NotificationMessageText = "Person successfully Saved.";
 
         });
     }

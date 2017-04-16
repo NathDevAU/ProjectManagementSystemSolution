@@ -1,20 +1,29 @@
 ﻿import { Component } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
+
+
 @Component({
     selector: 'AddProject',
     template: require('./addproject.component.html')
+   
 })
 export class AddProjectComponent
 {
     public Project: Project;
     public httpService: Http;
+    public NotificationMessageText: string;
     constructor(http: Http) {
         this.httpService = http;
+        this.NotificationMessageText = "";
+    }
+    RemoveNotificationText()
+    {
+        this.NotificationMessageText = "";
     }
 
     AddNewProject(projectName:string, projectDesc:string)
     {
-        alert(projectDesc);
+      //  alert(projectDesc);
         let headersB = new Headers();
         headersB.append('Content-Type', 'application/json');
         //let options = new RequestOptions({ headers: headersB }); 
@@ -24,7 +33,7 @@ export class AddProjectComponent
         this.httpService.post('api/ProjectsData/PostProject', body, options).subscribe(result => {
             // debugger;
 
-
+            this.NotificationMessageText = "Project successfully Saved.";
         });
     }
 }
