@@ -17,10 +17,7 @@ export class AddProjectPersonComponent  {
     constructor(http: Http, private route: ActivatedRoute, private router: Router) {
         this.httpService = http;
         
-           http.get('api/PersonData/GetPersonList').subscribe(result => {
-               // debugger;
-               this.Persons = result.json() as Person[];
-           });
+       
 
           
 
@@ -33,6 +30,10 @@ export class AddProjectPersonComponent  {
                 // Defaults to 0 if no query param provided.
                 this.ProjectID = parseInt( params['ProjectID']);
                 this.ProjectName = params['ProjectName'];
+                this.httpService.get('api/PersonData/GetPersonListToAddInProject?ProjectID=' + this.ProjectID).subscribe(result => {
+                    // debugger;
+                    this.Persons = result.json() as Person[];
+                });
             });
     }
     ngOnDestroy() {
