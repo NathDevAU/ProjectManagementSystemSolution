@@ -1,9 +1,29 @@
 Project Management System
 
-This project is developed using Asp.net core technologies with angular, bootstrap, typescripts for front end.
+Implementation Overview:-
+
+This project is developed using Asp.net core technologies with angular 2 components, bootstrap, typescripts for front end.
 
 Back-end is developed using entity framework code first approach with Unit of Work implementation to avoid concurrency transaction issues.  Data access layer is developed using generic repository pattern along with unit of work implementation.
 
 Business logic is then connected to data access layer to fetch the needed data and return final outcome with business logic applied if needed to Controller of AngularAPP.
 
-Asp.net core ‘s inbuilt dependency injection services used via configuring concrete class mapping in ConfigureServices method of Startup.cs file.  In addition, it also adds DBcontextoption with database connection string from “appsettings.json” required for database connection through entity framework to Unit of work class object which implements the DBContext class. 
+Asp.net core ‘s inbuilt dependency injection services used via configuring concrete class mapping in ConfigureServices method of Startup.cs file.  
+
+In addition, it also adds DBcontextoption with database connection string from “appsettings.json” required for database connection through entity framework to Unit of work class object which implements the DBContext class. 
+
+Database connection string can be changed in appsettings.json if needed.
+
+Database files mdf and ldf are also attached so it is easy to attach it on any computer.
+
+I have also added few Unit Tests under BusinessLogic Unit Test project. this is actually showing the test outcome on concole app. I have used Nunitlite for this project as i could not find compatiblt NUnit version to work with .net core project.
+
+
+Pre-requisites:-
+VS 2017, ASP.NET CORE 1.1 framework, Angular , SQL server for database , NPM 
+
+Setup Steps:-
+1. please attach database into sql server using provided mdf and ldf files 
+2. please make sure database connection string in appsettings.json is updated if needed
+3. Build whole solution to install all nuget and other npm packages to be installed.
+4. Main UI angular 2 app is called "PMSAngularAPP". This is already set as startup project but if some reason not then please make sure you make this project as Setup as Startup Project.
