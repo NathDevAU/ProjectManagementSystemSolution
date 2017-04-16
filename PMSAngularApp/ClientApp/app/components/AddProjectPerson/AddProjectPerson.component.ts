@@ -1,6 +1,7 @@
 ﻿import { OnInit, OnDestroy,  Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions  } from '@angular/http';
+
 
 @Component({
     selector: 'AddProjectPerson',
@@ -10,12 +11,19 @@ export class AddProjectPersonComponent  {
     public Persons: Person[];
     public ProjectID : number;
     public ProjectName: string;
-    constructor(http: Http, private route: ActivatedRoute, private router : Router) {
+    public PostURL: string; 
+    public httpService: Http;
 
-        http.get('api/PersonData/GetPersonList').subscribe(result => {
-            debugger;
-            this.Persons = result.json() as Person[];
-        });
+    constructor(http: Http, private route: ActivatedRoute, private router: Router) {
+        this.httpService = http;
+        
+           http.get('api/PersonData/GetPersonList').subscribe(result => {
+               // debugger;
+               this.Persons = result.json() as Person[];
+           });
+
+          
+
     }
     ngOnInit() {
         this.route
@@ -23,12 +31,31 @@ export class AddProjectPersonComponent  {
             .subscribe(params => {
                 
                 // Defaults to 0 if no query param provided.
-                this.ProjectID = params['ProjectID'];
+                this.ProjectID = parseInt( params['ProjectID']);
                 this.ProjectName = params['ProjectName'];
             });
     }
     ngOnDestroy() {
        
+    }
+
+    //Person need to be added into selected Project
+    PersonSelected(personIDSelected, projectIDSelected)
+    {
+        let headersB = new Headers();
+        headersB.append('Content-Type', 'application/json');
+        //let options = new RequestOptions({ headers: headersB }); 
+        let options = new RequestOptions({ headers: headersB });
+        alert(personIDSelected);
+        alert(projectIDSelected);
+       
+        var body = JSON.stringify({ PersonID: personIDSelected, ProjectID: projectIDSelected });
+        debugger;
+              this.httpService.post('api/ProjectPersonData/PostPersonToProject', body, options).subscribe(result => {
+            // debugger;
+           
+
+        });
     }
 }
 

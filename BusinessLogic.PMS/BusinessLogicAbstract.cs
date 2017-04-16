@@ -18,4 +18,11 @@ namespace BusinessLogic.PMS
         public abstract IEnumerable<PersonBase> GetAllPersonList();
         public abstract void AddNewPerson(PersonBase ObjPersonBase);
     }
+
+    public abstract class ProjectPersonBusinessLogicAbstract
+    {
+        public abstract int AddNewPersonToProject(ProjectPersonBase ObjProjectPersonToAdd);
+
+        public abstract IEnumerable<ProjectPersonBase> GetProjectPersons(int ProjectID);
+    }
 }

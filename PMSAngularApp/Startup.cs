@@ -48,9 +48,11 @@ namespace PMSAngularApp
             services.AddTransient<IProject, ProjectBase>();
             services.AddTransient<IRepository<ProjectBase>,EFDataAccessLayer<ProjectBase>>();
             services.AddTransient<IRepository<PersonBase>, EFDataAccessLayer<PersonBase>>();
+            services.AddTransient<IRepository<ProjectPersonBase>, EFDataAccessLayer<ProjectPersonBase>>();
 
             services.AddTransient<ProjectBusinessLogicAbstract, ProjectBusinessLogic>();
             services.AddTransient<PersonBusinessLogicAbstract, PersonBusinessLogic>();
+            services.AddTransient<ProjectPersonBusinessLogicAbstract, ProjectPersonBusinessLogic>();
             services.AddTransient<IUow, EUow>().BuildServiceProvider();
             // services.AddScoped<InterfaceDAL,>
         }

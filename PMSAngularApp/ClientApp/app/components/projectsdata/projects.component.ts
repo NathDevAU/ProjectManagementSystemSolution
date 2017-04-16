@@ -17,7 +17,7 @@ export class ProjectsComponent {
 }
 interface Projects
 {
-        projectID: number;
+    projectID: number;
     projectName: string;
     projectDesc: string;
     

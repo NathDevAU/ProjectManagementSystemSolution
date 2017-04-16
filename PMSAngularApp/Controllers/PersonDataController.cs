@@ -34,5 +34,20 @@ namespace PMSAngularApp.Controllers
         {
             return _ObjectOfPersonBusinessLogic.GetAllPersonList();
         }
+        [HttpGet("[action]")]
+        public IEnumerable<PersonBase> GetPersonListToAddInProject(int ProjectID)
+        {
+            return _ObjectOfPersonBusinessLogic.GetAllPersonList();
+        }
+
+
+        [HttpPost("[action]")]
+        public void PostPersonToProject([FromBody] ProjectPersonBase ObjProjectPersonToAdd)
+        {
+           
+        }
+
+
+        
     }
 }

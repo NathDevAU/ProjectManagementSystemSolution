@@ -5,6 +5,7 @@ using ORMEntitiesPMS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace EntityFrameworkPMS
 {
@@ -21,9 +22,36 @@ namespace EntityFrameworkPMS
         {
           dbcont.Set<Type>().Add(ObjectToAdd);
         }
+        public  IEnumerable<Type> GetFilteredData(
+    Expression<Func<Type, bool>> filter = null,
+    Func<IQueryable<Type>, IOrderedQueryable<Type>> orderBy = null,
+    string includeProperties = "")
+        {
+            IQueryable<Type> query = dbcont.Set<Type>();
 
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+
+            foreach (var includeProperty in includeProperties.Split
+                (new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                query = query.Include(includeProperty);
+            }
+
+            if (orderBy != null)
+            {
+                return orderBy(query).ToList();
+            }
+            else
+            {
+                return query.ToList();
+            }
+        }
         public IEnumerable<Type> GetData(int DataIndex)
         {
+            //return dbcont.Set<Type>().Find(DataIndex);
             throw new NotImplementedException();
         }
 
@@ -64,7 +92,10 @@ namespace EntityFrameworkPMS
            
             modelBuilder.Entity<PersonBase>()
                       .ToTable("Person");
+            modelBuilder.Entity<ProjectPersonBase>()
+                     .ToTable("ProjectPerson");
         }
+
 
       
         public EUow(DbContextOptions<EUow> options) : base(options)

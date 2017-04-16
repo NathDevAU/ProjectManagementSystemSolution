@@ -3,6 +3,7 @@ using InterfacesPMS;
 using ORMEntitiesPMS;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BusinessLogic.PMS
 {
@@ -69,6 +70,47 @@ namespace BusinessLogic.PMS
 
         }
 
+
+        #endregion
+
+    }
+
+    #endregion
+
+
+    #region Project Person Business Logic Implementation
+    public class ProjectPersonBusinessLogic : ProjectPersonBusinessLogicAbstract
+    {
+        private IRepository<ProjectPersonBase> _iRepoProjectPersonBase;
+
+        public ProjectPersonBusinessLogic()
+        {
+        }
+
+        // constructor with dependency injection using asp.net core DI
+        public ProjectPersonBusinessLogic(IRepository<ProjectPersonBase> IRepoProjectPersonBase)
+        {
+            _iRepoProjectPersonBase = IRepoProjectPersonBase;
+        }
+        #region Get Project data
+       
+        public override int AddNewPersonToProject(ProjectPersonBase ObjProjectPersonToAdd)
+        {
+            if (ObjProjectPersonToAdd.PersonID != 0 && ObjProjectPersonToAdd.ProjectID != 0)
+            {
+                //Check for already exists person if exists then dont allow to add the person again
+                if (GetProjectPersons(ObjProjectPersonToAdd.ProjectID).Where(x => x.PersonID == ObjProjectPersonToAdd.PersonID).Count() > 0)
+                    return -1;
+                else
+                    _iRepoProjectPersonBase.Add(ObjProjectPersonToAdd);
+            }
+            return 0;
+        }
+
+        public override IEnumerable<ProjectPersonBase> GetProjectPersons(int ProjectID)
+        {
+          return  _iRepoProjectPersonBase.GetFilteredData( filter: x => x.ProjectID == ProjectID);
+        }
 
         #endregion
 

@@ -1,5 +1,5 @@
-﻿<h1>Add Person to Project</h1>
-<h2>Project ID: {{ProjectID}}, Project Name: {{ProjectName}}</h2>
+﻿<h3>Add person to project</h3>
+<h4>Project ID: {{ProjectID}} | Project Name: {{ProjectName}}</h4>
 <table class="table">
     <thead class="thead-inverse">
         <tr>
@@ -15,7 +15,11 @@
             <td>{{ ObjPerson.firstName }}</td>
             <td>{{ ObjPerson.lastName }}</td>
             <td>{{ ObjPerson.mobileNo }}</td>
-           
+            <td>
+                <a class='btn btn-primary' (click)="PersonSelected( ObjPerson.personID,ProjectID );">
+                    Add
+                </a>
+            </td>
         </tr>
     </tbody>
 
