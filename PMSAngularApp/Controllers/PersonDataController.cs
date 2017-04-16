@@ -58,7 +58,8 @@ namespace PMSAngularApp.Controllers
                 {
                     try
                     {
-                        if (ObjPerson.PersonID == lstOfProjectPerson.Where(x => x.PersonID == ObjPerson.PersonID).FirstOrDefault().PersonID) ;
+                        var selectedPersonIDCount = lstOfProjectPerson.Where(x => x.PersonID == ObjPerson.PersonID).Count();
+                        if (selectedPersonIDCount > 0) ;
                         else
                             lstOfPersonBase.Add(ObjPerson);
                     }

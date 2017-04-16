@@ -65,5 +65,5 @@ interface Person
     personID: number;
     firstName: string;
     lastName: string;
-    mobileNo: string
+   
 }

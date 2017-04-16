@@ -10,16 +10,26 @@ export class AddPersonComponent {
     constructor(http: Http) {
         this.httpService = http;
     }
+    KeyPressedForMobileNo(evt)
+    {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
 
-    AddNewProject(firstName: string, lastName: string, mobileNo:string) {
+        if (charCode > 31 && (charCode != 46 && (charCode < 48 || charCode > 57))) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    AddNewPerson(firstName: string, lastName: string) {
         alert(firstName);
         let headersB = new Headers();
         headersB.append('Content-Type', 'application/json');
         //let options = new RequestOptions({ headers: headersB }); 
         let options = new RequestOptions({ headers: headersB });
-        var body = JSON.stringify({ PersonID: 0, FirstName: firstName, LastName: lastName, MobileNo: mobileNo });
+        var body = JSON.stringify({ PersonID: 0, FirstName: firstName, LastName: lastName });
         debugger;
-        this.httpService.post('api/ProjectsData/PostPerson', body, options).subscribe(result => {
+        this.httpService.post('api/PersonData/PostPerson', body, options).subscribe(result => {
             // debugger;
 
 

@@ -7,10 +7,7 @@
     <label for="inputdefault">Last Name:</label>
     <input class="form-control" #txtLastName type="text">
 </div>
-<div class="form-group">
-    <label for="inputdefault">Mobile:</label>
-    <input class="form-control" #txtMobileNo type="text">
-</div>
+
 <div>
-    <button class='btn btn-primary' #btnAddProject (click)="AddNewPerson(txtProjectName.value,txtProjectDesc.value)">Add Person</button>
+    <button class='btn btn-primary' #btnAddProject (click)="AddNewPerson(txtFirstName.value,txtLastName.value)">Add Person</button>
 </div>

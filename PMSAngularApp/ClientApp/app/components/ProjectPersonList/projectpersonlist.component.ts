@@ -43,5 +43,5 @@ interface ProjectPerson {
     personID: number;
     firstName: string;
     lastName: string;
-    mobileNo: string
+   
 }
