@@ -11,11 +11,11 @@ using InterfacesPMS;
 
 namespace PMSAngularApp.Controllers
 {
-    public class ProjectController : Controller
+    public class PMSController : Controller
     {
         IUow _ObjectUnitOfWork;
         IRepository<ProjectBase> _objectOfProjectRepository;
-        public ProjectController(IRepository<ProjectBase> ObjectOfProjectRepository, EUow ObjectOfUnitOfWork)
+        public PMSController(IRepository<ProjectBase> ObjectOfProjectRepository, EUow ObjectOfUnitOfWork)
         {
             //set unit of work with connection string to connect to database
             _ObjectUnitOfWork = ObjectOfUnitOfWork;
@@ -24,7 +24,7 @@ namespace PMSAngularApp.Controllers
         }
         
 
-        public IActionResult ProjectList()
+        public IActionResult Home()
         {
           
             return View();

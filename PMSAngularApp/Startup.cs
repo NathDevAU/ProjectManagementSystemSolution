@@ -81,11 +81,11 @@ namespace PMSAngularApp
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Project}/{action=ProjectList}/{id?}");
+                    template: "{controller=PMS}/{action=Home}/{id?}");
 
                 routes.MapSpaFallbackRoute(
                     name: "spa-fallback",
-                    defaults: new { controller = "Project", action = "ProjectList" });
+                    defaults: new { controller = "PMS", action = "Home" });
             });
         }
     }
