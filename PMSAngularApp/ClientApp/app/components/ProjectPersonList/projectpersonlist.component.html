@@ -1,0 +1,23 @@
+﻿<h3>Project Person List</h3>
+<h4>Project ID: {{ProjectID}} | Project Name: {{ProjectName}}</h4>
+<table class="table">
+    <thead class="thead-inverse">
+        <tr>
+            <th>Person ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Mobile</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let ObjPerson of ProjectPersons">
+            <td>{{ ObjPerson.personID }}</td>
+            <td>{{ ObjPerson.firstName }}</td>
+            <td>{{ ObjPerson.lastName }}</td>
+            <td>{{ ObjPerson.mobileNo }}</td>
+         
+        </tr>
+    </tbody>
+
+
+</table>

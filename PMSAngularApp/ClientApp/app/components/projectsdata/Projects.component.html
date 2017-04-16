@@ -1,8 +1,8 @@
-﻿<h1>Projects List</h1>
+﻿<h3>Projects List</h3>
 <table class="table">
     <thead class="thead-inverse">
         <tr>
-            <th>#</th>
+            <th>Project ID</th>
             <th>Project Name</th>
             <th>Project Description</th>
            
@@ -13,11 +13,16 @@
             <td>{{ ObjProject.projectID }}</td>
             <td>{{ ObjProject.projectName }}</td>
             <td>{{ ObjProject.projectDesc }}</td>
-            <td><a class='btn btn-primary' [routerLink]="['/AddProjectPerson']" [queryParams] =" {ProjectID : ObjProject.projectID, ProjectName : ObjProject.projectName}"  >
-   
-   Add Person
-</a>
-              </td>
+            <td>
+                <a class='btn btn-primary' [routerLink]="['/AddProjectPerson']" [queryParams]=" {ProjectID : ObjProject.projectID, ProjectName : ObjProject.projectName}">
+                    Add Person
+                </a>
+            </td>
+            <td>
+                <a class='btn btn-primary' [routerLink]="['/ViewProjectPersons']" [queryParams]=" {ProjectID : ObjProject.projectID, ProjectName : ObjProject.projectName}">
+                    View People
+                </a>
+            </td>
         </tr>
     </tbody>
 

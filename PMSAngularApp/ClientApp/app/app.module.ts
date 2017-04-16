@@ -8,6 +8,7 @@ import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { ProjectsComponent } from './components/projectsdata/projects.component';
 import { AddProjectPersonComponent } from './components/AddProjectPerson/AddProjectPerson.component';
+import { ProjectPersonListComponent } from './components/ProjectPersonList/projectpersonlist.component';
 @NgModule({
     bootstrap: [ AppComponent ],
     declarations: [
@@ -17,7 +18,8 @@ import { AddProjectPersonComponent } from './components/AddProjectPerson/AddProj
         FetchDataComponent,
         HomeComponent,
         ProjectsComponent,
-        AddProjectPersonComponent
+        AddProjectPersonComponent,
+        ProjectPersonListComponent
     ],
     imports: [
         UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.
@@ -28,6 +30,7 @@ import { AddProjectPersonComponent } from './components/AddProjectPerson/AddProj
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'projects', component: ProjectsComponent },
             { path: 'AddProjectPerson', component: AddProjectPersonComponent },
+            { path: 'ViewProjectPersons', component: ProjectPersonListComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]
