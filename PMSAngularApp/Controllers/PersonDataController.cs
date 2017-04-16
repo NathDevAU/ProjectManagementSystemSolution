@@ -76,7 +76,13 @@ namespace PMSAngularApp.Controllers
            
         }
 
+        // POST api/Persondata/PostPerson
+        [HttpPost("[action]")]
+        public void PostPerson([FromBody]PersonBase ObjPersonToAdd)
+        {
+            _ObjectOfPersonBusinessLogic.AddNewPerson(ObjPersonToAdd);
+            _ObjectUnitOfWork.Committ();
+        }
 
-        
     }
 }
