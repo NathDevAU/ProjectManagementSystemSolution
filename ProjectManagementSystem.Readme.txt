@@ -8,9 +8,9 @@ Back-end is developed using entity framework code first approach with Unit of Wo
 
 Business logic is then connected to data access layer to fetch the needed data and return final outcome with business logic applied if needed to Controller of AngularAPP.
 
-Asp.net core ës inbuilt dependency injection services used via configuring concrete class mapping in ConfigureServices method of Startup.cs file.  
+Asp.net core ‚Äòs inbuilt dependency injection services used via configuring concrete class mapping in ConfigureServices method of Startup.cs file.  
 
-In addition, it also adds DBcontextoption with database connection string from ìappsettings.jsonî required for database connection through entity framework to Unit of work class object which implements the DBContext class. 
+In addition, it also adds DBcontextoption with database connection string from ‚Äúappsettings.json‚Äù required for database connection through entity framework to Unit of work class object which implements the DBContext class. 
 
 Database connection string can be changed in appsettings.json if needed.
 
