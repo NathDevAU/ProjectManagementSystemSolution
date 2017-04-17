@@ -14,7 +14,6 @@ In addition, it also adds DBcontextoption with database connection string from â
 
 Database connection string can be changed in appsettings.json if needed.
 
-Database files mdf and ldf are also attached so it is easy to attach it on any computer.
 
 I have also added few Unit Tests under BusinessLogic Unit Test project. this is actually showing the test outcome on concole app. I have used Nunitlite for this project as i could not find compatiblt NUnit version to work with .net core project.
 
@@ -23,11 +22,11 @@ Pre-requisites:-
 VS 2017, ASP.NET CORE 1.1 framework, Angular , SQL server for database , NPM 
 
 Database Setup files:- 
-database mdf and ldf files provided under DatabaseFiles folder to attach to sql server Or user can create manually database and run the provided tablewithdatascript.sql under DatabaseFiles folder.
+user can create manually database with name called "ProjectManagementSystem" and run the provided tablewithdatascript.sql under DatabaseFiles folder.
 
 
 Setup Steps:-
-1. please attach database into sql server using provided mdf and ldf files (If it does not suites you then create database with name "ProjectManagementSystem" and run the provided tablewithscript.sql on it to create tables with data
+1. please create database with name "ProjectManagementSystem" and run the provided tablewithscript.sql on it to create tables with data
 2. please make sure database connection string in appsettings.json is updated if needed
 3. Build whole solution to install all nuget and other npm packages to be installed.
 4. Main UI angular 2 app is called "PMSAngularAPP". This is already set as startup project but if some reason not then please make sure you make this project as Setup as Startup Project.
